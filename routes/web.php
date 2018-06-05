@@ -1,7 +1,6 @@
 <?php
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/', 'OverviewController@index')->name('overview');
+    Route::get('/home', 'HomeController@index')->name('home');
+});
