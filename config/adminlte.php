@@ -115,8 +115,14 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text' => 'Overview',
+            'url' => '/',
+            'icon' => 'home',
+        ],
+        'Accounts',
+        [
             'text'        => 'Pages',
-            'url'         => 'admin/pages',
+            'url'         => 'accounts',
             'icon'        => 'file',
             'label'       => 4,
             'label_color' => 'success',
@@ -124,7 +130,7 @@ return [
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/profile',
             'icon' => 'user',
         ],
         [
