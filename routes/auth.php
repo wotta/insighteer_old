@@ -1,7 +1,7 @@
 <?php
 
 Route::middleware('guest')->group(function () {
-    Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
 
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
