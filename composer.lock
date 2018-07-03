@@ -4,8 +4,58 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f93b90325282e12a4d9f31c2fd6c3a72",
+    "content-hash": "7fcf82d4a202a37233541d8dba23b999",
     "packages": [
+        {
+            "name": "armandsar/laravel-quick-view",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/armandsar/laravel-quick-view.git",
+                "reference": "0e0389d18b71c0bed1cf7a7bbfe69c8b93b219a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/armandsar/laravel-quick-view/zipball/0e0389d18b71c0bed1cf7a7bbfe69c8b93b219a2",
+                "reference": "0e0389d18b71c0bed1cf7a7bbfe69c8b93b219a2",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.1",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~6.0||~7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Armandsar\\QuickView\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Armands Leinieks",
+                    "email": "armands.leinieks@gmail.com"
+                }
+            ],
+            "description": "Quickly render view from controller without typing file names",
+            "homepage": "https://github.com/armandsar/laravel-quick-view",
+            "keywords": [
+                "laravel",
+                "view"
+            ],
+            "time": "2018-04-24T12:43:58+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -2339,6 +2389,63 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "wotta/commands-module",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wotta/commands-module.git",
+                "reference": "b9f010b96494e59e46b4799adf7b5ad1209849a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wotta/commands-module/zipball/b9f010b96494e59e46b4799adf7b5ad1209849a4",
+                "reference": "b9f010b96494e59e46b4799adf7b5ad1209849a4",
+                "shasum": ""
+            },
+            "require": {
+                "armandsar/laravel-quick-view": "^1.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ConceptCore\\CommandsModule\\CommandsServiceProvider"
+                    ],
+                    "aliases": {
+                        "commands-module": "ConceptCore\\CommandsModule\\CommandsFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ConceptCore\\CommandsModule\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wouter van Marrum",
+                    "email": "wouter.van.marrum@concept-core.nl",
+                    "homepage": "https://github.com/concept-core",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This module holds some easy to use commands for a laravel project",
+            "homepage": "https://github.com/concept-core/commands-module",
+            "keywords": [
+                "commands-module",
+                "concept-core"
+            ],
+            "time": "2018-04-18T13:31:50+00:00"
         }
     ],
     "packages-dev": [
