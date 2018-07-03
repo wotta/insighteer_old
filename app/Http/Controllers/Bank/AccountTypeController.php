@@ -17,8 +17,6 @@ class AccountTypeController extends Controller
     public function __construct(AccountTypeService $accountTypeService)
     {
         $this->accountTypeService = $accountTypeService;
-
-        dd($accountTypeService);
     }
 
     public function index(): View
