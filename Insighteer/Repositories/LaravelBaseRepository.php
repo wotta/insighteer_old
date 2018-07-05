@@ -2,21 +2,23 @@
 
 namespace Insighteer\Repositories;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
-class LaravelBaseRepository implements LaravelBaseRepositoryInterface
+abstract class LaravelBaseRepository implements LaravelBaseRepositoryInterface
 {
     /** @var Model */
     protected $model;
 
-    public function setModel(Model $model): void
-    {
-        $this->model = $model;
-    }
-
     public function all(): Collection
     {
-        return $this->model->all();
+        return $this->getModel()->all();
     }
+
+    public function getModel(): Model
+    {
+        return $this->model;
+    }
+
+    abstract public function setModel(Model $model);
 }
