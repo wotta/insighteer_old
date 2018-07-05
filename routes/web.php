@@ -6,5 +6,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::namespace('Bank')->prefix('bank')->middleware('auth')->group(function () {
-    Route::resource('accounttypes', 'AccountTypeController');
+    Route::resource('account-types', 'AccountTypeController');
 });

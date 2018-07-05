@@ -124,7 +124,7 @@ return [
             'submenu' => [
                 [
                     'text'        => 'Own accounts',
-                    'url'         => 'accounts',
+                    'url'         => 'bank/accounts',
                     'icon'        => 'file',
                     'label'       => 2,
                 ],

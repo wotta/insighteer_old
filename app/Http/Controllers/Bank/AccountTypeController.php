@@ -7,21 +7,21 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
-use Insighteer\Services\Bank\AccountTypeService;
+use Insighteer\Repositories\Bank\AccountTypeRepositoryInterface;
 
 class AccountTypeController extends Controller
 {
-    /** @var AccountTypeService */
-    private $accountTypeService;
+    /** @var AccountTypeRepositoryInterface */
+    private $accountTypeRepository;
 
-    public function __construct(AccountTypeService $accountTypeService)
+    public function __construct(AccountTypeRepositoryInterface $accountTypeRepository)
     {
-        $this->accountTypeService = $accountTypeService;
+        $this->accountTypeRepository = $accountTypeRepository;
     }
 
     public function index(): View
     {
-        return $this->quick()->withData(AccountType::all());
+        return $this->quick()->withData($this->accountTypeRepository->all());
     }
 
     public function create(): View
