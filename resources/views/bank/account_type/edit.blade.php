@@ -15,11 +15,12 @@
                 </div>
                 <div class="box-body">
                     @include('bank.account_type._form', [
-                        'route' => route('account-types.store')
+                        'route' => route('account-types.update', $model),
+                        'method' => 'patch'
                     ])
                 </div>
                 <div class="box-footer">
-                    <button class="btn btn-primary" form="account_type_form">Toevoegen</button>
+                    <button class="btn btn-primary" form="account_type_form">Bewerken</button>
                 </div>
             </div>
         </div>
