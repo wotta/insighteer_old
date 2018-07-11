@@ -15,6 +15,11 @@ abstract class LaravelBaseRepository implements LaravelBaseRepositoryInterface
         return $this->getModel()->all();
     }
 
+    public function create(array $items): Model
+    {
+        return $this->getModel()->create($items);
+    }
+
     public function getModel(): Model
     {
         return $this->model;

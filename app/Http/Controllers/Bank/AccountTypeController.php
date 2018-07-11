@@ -31,7 +31,7 @@ class AccountTypeController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        AccountType::create($request->all());
+        $this->accountTypeRepository->create($request->all());
 
         return redirect()->route('account-types.index');
     }
