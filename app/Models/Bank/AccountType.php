@@ -11,4 +11,8 @@ class AccountType extends Model
         'description',
         'is_commercial',
     ];
+
+    protected $casts = [
+        'is_commercial' => 'boolean',
+    ];
 }

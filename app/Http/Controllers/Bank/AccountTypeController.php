@@ -33,7 +33,7 @@ class AccountTypeController extends Controller
     {
         AccountType::create($request->all());
 
-        return redirect()->route('bank.accounttype.index');
+        return redirect()->route('account-types.index');
     }
 
     public function show(AccountType $accountType): View
