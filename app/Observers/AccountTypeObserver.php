@@ -14,19 +14,4 @@ class AccountTypeObserver
             $accountType->setAttribute('is_commercial', filter_var($isCommercial, FILTER_VALIDATE_BOOLEAN));
         }
     }
-
-    public function created(AccountType $accountType): void
-    {
-        //
-    }
-
-    public function updated(AccountType $accountType): void
-    {
-        //
-    }
-
-    public function deleted(AccountType $accountType): void
-    {
-        //
-    }
 }
