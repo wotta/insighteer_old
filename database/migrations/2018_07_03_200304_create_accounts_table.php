@@ -10,7 +10,7 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('account_type_id');
+            $table->unsignedInteger('account_type_id')->nullable();
             $table->string('iban', 32)->unique();
             $table->string('bic', 11)->nullable();
             $table->string('bank_name')->nullable();
@@ -19,7 +19,8 @@ class CreateAccountsTable extends Migration
 
             $table->foreign('account_type_id')
                 ->references('id')
-                ->on('account_types');
+                ->on('account_types')
+                ->onDelete('SET NULL');
         });
     }
 
