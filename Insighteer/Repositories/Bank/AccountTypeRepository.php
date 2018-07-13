@@ -6,17 +6,13 @@ use App\Models\Bank\AccountType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Insighteer\Repositories\LaravelBaseRepository;
+use Insighteer\Transformers\AccountTypeTransformer;
 
 class AccountTypeRepository extends LaravelBaseRepository implements AccountTypeRepositoryInterface
 {
-    public function __construct(AccountType $accountType)
+    public function __construct(AccountType $accountType, AccountTypeTransformer $accountTypeTransformer)
     {
         $this->setModel($accountType);
-    }
-
-    public function setModel(Model $model): Model
-    {
-        $this->model = $model;
-        return $model;
+        $this->setTransformer($accountTypeTransformer);
     }
 }

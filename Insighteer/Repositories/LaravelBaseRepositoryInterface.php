@@ -2,17 +2,14 @@
 
 namespace Insighteer\Repositories;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
-
 interface LaravelBaseRepositoryInterface
 {
-    public function all(): Collection;
+    public function all(): array;
 
     /**
-     * @param array $items
-     * @return Model
+     * @param array $attributes
+     * @return object
      * @throws Illuminate\Database\QueryException
      */
-    public function create(array $items): Model;
+    public function create(array $attributes): object;
 }

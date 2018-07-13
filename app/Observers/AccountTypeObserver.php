@@ -10,8 +10,6 @@ class AccountTypeObserver
     {
         $isCommercial = $accountType->getAttribute('is_commercial');
 
-        if (! is_null($isCommercial)) {
-            $accountType->setAttribute('is_commercial', filter_var($isCommercial, FILTER_VALIDATE_BOOLEAN));
-        }
+        $accountType->setAttribute('is_commercial', $isCommercial ?: false);
     }
 }

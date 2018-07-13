@@ -4,20 +4,25 @@ namespace Insighteer\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Insighteer\Repositories\Bank\AccountTypeRepository;
+use Insighteer\Transformers\TransformerInterface;
 
 abstract class LaravelBaseRepository implements LaravelBaseRepositoryInterface
 {
+    /** @var TransformerInterface */
+    protected $transformer;
+
     /** @var Model */
     protected $model;
 
-    public function all(): Collection
+    public function all(): array
     {
-        return $this->getModel()->all();
+        return $this->transformer->transformMulti($this->getModel()->get()->all());
     }
 
-    public function create(array $items): Model
+    public function create(array $attributes): object
     {
-        return $this->getModel()->create($items);
+        return $this->transformer->transform($this->getModel()->create($attributes));
     }
 
     public function getModel(): Model
@@ -25,5 +30,15 @@ abstract class LaravelBaseRepository implements LaravelBaseRepositoryInterface
         return $this->model;
     }
 
-    abstract public function setModel(Model $model);
+    protected function setTransformer(TransformerInterface $transformer): void
+    {
+        $this->transformer = $transformer;
+    }
+
+    protected function setModel(Model $model): Model
+    {
+        $this->model = $model;
+
+        return $model;
+    }
 }
