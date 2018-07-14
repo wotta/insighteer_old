@@ -10,7 +10,7 @@
     <tbody>
         @foreach($accountTypes as $accountType)
             <tr>
-                <td>{{ $accountType->getId() }}</td>
+                <td><a href="{{ route('account-types.show', $accountType->getId()) }}">{{ $accountType->getId() }}</a>.</td>
                 <td>{{ $accountType->getName() }}</td>
                 <td><span class="badge bg-red">5</span></td>
                 <td>
@@ -18,7 +18,7 @@
                         @csrf
                         @method('delete')
 
-                        <button class="btn btn-default"><i data-feather="trash-2"></i></button>
+                        <button class="btn btn-default btn-sm"><i data-feather="trash-2"></i></button>
                     </form>
                 </td>
             </tr>
