@@ -17,7 +17,7 @@
                     @include('bank.account_type.partials.overview')
                 </div>
                 <div class="box-footer">
-                    <span>Totaal account types : <span class="text-bold">8</span></span>
+                    <span>Totaal account types : <span class="text-bold">{{ count($accountTypes) }}</span></span>
                 </div>
             </div>
         </div>

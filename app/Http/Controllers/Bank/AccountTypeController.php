@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Bank;
 
 use App\Models\Bank\AccountType;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
@@ -21,7 +21,7 @@ class AccountTypeController extends Controller
 
     public function index(): View
     {
-        return $this->quick()->withData($this->accountTypeRepository->all());
+        return $this->quick()->with('accountTypes', $this->accountTypeRepository->all());
     }
 
     public function create(): View
@@ -50,13 +50,13 @@ class AccountTypeController extends Controller
     {
         $accountType->update($request->all());
 
-        return redirect()->route('bank.accounttype.index');
+        return redirect()->route('account-types.index');
     }
 
     public function destroy(AccountType $accountType): RedirectResponse
     {
         $accountType->delete();
 
-        return redirect()->route('bank.accounttype.index');
+        return redirect()->route('account-types.index');
     }
 }

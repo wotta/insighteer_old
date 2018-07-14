@@ -9,11 +9,15 @@ class AccountTypeTransformer implements TransformerInterface
 {
     public function transform(Model $entity): object
     {
-        return new AccountTypeEntity(
+        $accountTypeEntity = new AccountTypeEntity(
             $entity->name,
             $entity->description,
             $entity->is_commercial
         );
+
+        $accountTypeEntity->setId($entity->id);
+
+        return $accountTypeEntity;
     }
 
     public function transformMulti(array $accountTypes): array

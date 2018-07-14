@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
     @yield('title', config('adminlte.title', 'AdminLTE 2'))
     @yield('title_postfix', config('adminlte.title_postfix', ''))</title>
@@ -40,9 +41,11 @@
 </head>
 <body class="hold-transition @yield('body_class')">
 
-@yield('body')
+<div id="app">
+    @yield('body')
+</div>
 
-<script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
