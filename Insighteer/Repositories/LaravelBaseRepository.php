@@ -25,7 +25,12 @@ abstract class LaravelBaseRepository implements LaravelBaseRepositoryInterface
         return $this->transformer->transform($this->getModel()->create($attributes));
     }
 
-    public function getModel(): Model
+    public function delete(int $getId): ?bool
+    {
+        return $this->getModel()->find($getId)->delete();
+    }
+
+    protected function getModel(): Model
     {
         return $this->model;
     }

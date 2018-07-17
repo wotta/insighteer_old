@@ -12,4 +12,10 @@ interface LaravelBaseRepositoryInterface
      * @throws Illuminate\Database\QueryException
      */
     public function create(array $attributes): object;
+
+    /**
+     * @param int $getId
+     * @return bool|null
+     */
+    public function delete(int $getId): ?bool;
 }

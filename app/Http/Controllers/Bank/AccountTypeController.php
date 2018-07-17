@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Bank;
 
-use App\Models\Bank\AccountType;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
+use Insighteer\Entities\Bank\AccountType;
 use Insighteer\Repositories\Bank\AccountTypeRepositoryInterface;
 
 class AccountTypeController extends Controller
@@ -38,7 +38,7 @@ class AccountTypeController extends Controller
 
     public function show(AccountType $accountType): View
     {
-        return $this->quick()->withData($accountType);
+        return $this->quick()->with('accountType', $accountType);
     }
 
     public function edit(AccountType $accountType): View
@@ -55,7 +55,7 @@ class AccountTypeController extends Controller
 
     public function destroy(AccountType $accountType): RedirectResponse
     {
-        $accountType->delete();
+        $this->accountTypeRepository->delete($accountType->getId());
 
         return redirect()->route('account-types.index');
     }

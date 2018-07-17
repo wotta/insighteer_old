@@ -9,7 +9,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <h1>Bekijk {{ $model->id }}</h1>
+            <h1>Bekijk {{ $accountType->getId() }}</h1>
 
             {{-- Account type information here --}}
         </div>
