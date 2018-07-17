@@ -22,7 +22,7 @@
         <div class="col-md-8">
             <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Voeg account type toe</h3>
+                    <h3 class="box-title">Update account type toe</h3>
                 </div>
                 <div class="box-body">
                     @include('bank.account_type._form', [
