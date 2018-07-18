@@ -13,8 +13,10 @@ class AccountTypeService extends LaravelBaseService
         $this->repository = $accountTypeRepository;
     }
 
-    public function all(): Collection
+    public function update(int $entityId, array $data): bool
     {
-        return $this->repository->all();
+        $data['is_commercial'] = array_key_exists('is_commercial', $data);
+
+        return parent::update($entityId, $data);
     }
 }
