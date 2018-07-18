@@ -160,8 +160,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\InsighteerServiceProvider::class,
-        App\Providers\ModelObserversProvider::class,
-
     ],
 
     /*

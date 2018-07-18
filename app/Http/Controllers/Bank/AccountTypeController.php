@@ -8,15 +8,22 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
 use Insighteer\Entities\Bank\AccountType;
 use Insighteer\Repositories\Bank\AccountTypeRepositoryInterface;
+use Insighteer\Services\Bank\AccountTypeService;
 
 class AccountTypeController extends Controller
 {
     /** @var AccountTypeRepositoryInterface */
     private $accountTypeRepository;
 
-    public function __construct(AccountTypeRepositoryInterface $accountTypeRepository)
-    {
+    /** @var AccountTypeService */
+    private $accountTypeService;
+
+    public function __construct(
+        AccountTypeRepositoryInterface $accountTypeRepository,
+        AccountTypeService $accountTypeService
+    ) {
         $this->accountTypeRepository = $accountTypeRepository;
+        $this->accountTypeService = $accountTypeService;
     }
 
     public function index(): View
@@ -48,9 +55,9 @@ class AccountTypeController extends Controller
 
     public function update(Request $request, AccountType $accountType): RedirectResponse
     {
-        $accountType->update($request->all());
+        $this->accountTypeService->update($accountType->getId(), $request->all());
 
-        return redirect()->route('account-types.index');
+        return redirect()->route('account-types.show', $accountType->getId());
     }
 
     public function destroy(AccountType $accountType): RedirectResponse
