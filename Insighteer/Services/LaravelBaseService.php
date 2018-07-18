@@ -21,8 +21,13 @@ class LaravelBaseService implements LaravelBaseServiceInterface
         return $this->repository->all();
     }
 
-    public function create(array $data): Model
+    public function create(array $data): object
     {
-        // TODO: Implement create() method.
+        return $this->repository->create($data);
+    }
+
+    public function update(int $entityId, array $data): bool
+    {
+        return $this->repository->update($entityId, $data);
     }
 }

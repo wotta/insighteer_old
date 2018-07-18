@@ -2,11 +2,11 @@
 
 namespace Insighteer\Services;
 
-use Illuminate\Database\Eloquent\Model;
-
 interface LaravelBaseServiceInterface
 {
     public function all();
 
-    public function create(array $data): Model;
+    public function create(array $data): object;
+
+    public function update(int $entityId, array $data): bool;
 }

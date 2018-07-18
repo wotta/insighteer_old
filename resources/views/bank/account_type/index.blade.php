@@ -30,6 +30,7 @@
                 <div class="box-body">
                     @include('bank.account_type._form', [
                         'route' => route('account-types.store'),
+                        'accountType' => null
                     ])
                 </div>
                 <div class="box-footer">

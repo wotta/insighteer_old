@@ -22,11 +22,12 @@
         <div class="col-md-8">
             <div class="box box-success">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Update account type toe</h3>
+                    <h3 class="box-title">Update account type</h3>
                 </div>
                 <div class="box-body">
                     @include('bank.account_type._form', [
-                        'route' => route('account-types.store'),
+                        'route' => route('account-types.update', $accountType->getId()),
+                        'method' => 'put',
                     ])
                 </div>
                 <div class="box-footer">
