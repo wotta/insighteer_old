@@ -13,9 +13,7 @@ interface LaravelBaseRepositoryInterface
      */
     public function create(array $attributes): object;
 
-    /**
-     * @param int $getId
-     * @return bool|null
-     */
-    public function delete(int $getId): ?bool;
+    public function update(int $entityId, array $data): bool;
+
+    public function delete(int $entityId): ?bool;
 }
