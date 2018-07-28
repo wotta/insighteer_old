@@ -1,5 +1,4 @@
 version: 2
-
 jobs:
   build:
     docker:
@@ -19,6 +18,6 @@ jobs:
         paths:
         - vendor
     - run: touch database/testing.sqlite
-    - run : php artisan key:generate --env=testing
+    - run: php artisan key:generate --env=testing
     - run: php artisan migrate --env=testing --database=sqlite_testing --force
     - run: ./vendor/bin/phpunit
