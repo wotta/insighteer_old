@@ -18,6 +18,6 @@ jobs:
         key: composer-v1-{{ checksum "composer.json" }}
         paths:
         - vendor
-    - run: touch storage/testing.sqlite
+    - run: touch database/testing.sqlite
     - run: php artisan migrate --env=testing --database=sqlite_testing --force
     - run: ./vendor/bin/phpunit
