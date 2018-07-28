@@ -16,9 +16,9 @@ class LaravelBaseService implements LaravelBaseServiceInterface
         $this->repository = $repository;
     }
 
-    public function all(): Collection
+    public function all(): array
     {
-        return $this->repository->all();
+        return $this->repository->all()->toArray();
     }
 
     public function create(array $data): object

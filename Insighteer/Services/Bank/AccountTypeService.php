@@ -10,7 +10,7 @@ class AccountTypeService extends LaravelBaseService
 {
     public function __construct(AccountTypeRepository $accountTypeRepository)
     {
-        $this->repository = $accountTypeRepository;
+        parent::__construct($accountTypeRepository);
     }
 
     public function update(int $entityId, array $data): bool

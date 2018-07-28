@@ -4,7 +4,7 @@ namespace Insighteer\Services;
 
 interface LaravelBaseServiceInterface
 {
-    public function all();
+    public function all(): array;
 
     public function create(array $data): object;
 
