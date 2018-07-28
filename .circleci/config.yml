@@ -19,7 +19,6 @@ jobs:
         paths:
         - vendor
     - run: touch database/testing.sqlite
-    - run : cp .env.example .env
     - run : php artisan key:generate
     - run: php artisan migrate --env=testing --database=sqlite_testing --force
     - run: ./vendor/bin/phpunit
