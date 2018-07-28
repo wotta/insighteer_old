@@ -2,30 +2,36 @@
 
 namespace App\Providers;
 
+use App\Models\Bank\AccountType;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Insighteer\Routes\LaravelRouteModelBinder;
+use Insighteer\Transformers\AccountTypeTransformer;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * This namespace is applied to your controller routes.
-     *
-     * In addition, it is set as the URL generator's root namespace.
-     *
-     * @var string
-     */
+    /** @var string */
     protected $namespace = 'App\Http\Controllers';
 
-    /**
-     * Define your route model bindings, pattern filters, etc.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
+    /** @var LaravelRouteModelBinder */
+    private $routeModelBinder;
 
+    public function boot(): void
+    {
         parent::boot();
+
+        $this->routeModelBinder = $this->app->make(LaravelRouteModelBinder::class);
+        $this->routeModelBinder->setupRouteBindings();
+    }
+
+    public function register()
+    {
+        $this->app->when(LaravelRouteModelBinder::class)
+            ->needs('$routeBindings')
+            ->give(function () {
+                return config('insighteer.route_bindings');
+            });
     }
 
     /**

@@ -1,11 +1,61 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f93b90325282e12a4d9f31c2fd6c3a72",
+    "content-hash": "4c91362e6c332e482342a685e4381b1b",
     "packages": [
+        {
+            "name": "armandsar/laravel-quick-view",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/armandsar/laravel-quick-view.git",
+                "reference": "0e0389d18b71c0bed1cf7a7bbfe69c8b93b219a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/armandsar/laravel-quick-view/zipball/0e0389d18b71c0bed1cf7a7bbfe69c8b93b219a2",
+                "reference": "0e0389d18b71c0bed1cf7a7bbfe69c8b93b219a2",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.1",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~6.0||~7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Armandsar\\QuickView\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Armands Leinieks",
+                    "email": "armands.leinieks@gmail.com"
+                }
+            ],
+            "description": "Quickly render view from controller without typing file names",
+            "homepage": "https://github.com/armandsar/laravel-quick-view",
+            "keywords": [
+                "laravel",
+                "view"
+            ],
+            "time": "2018-04-24T12:43:58+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -707,6 +757,74 @@
                 "psysh"
             ],
             "time": "2018-05-17T13:42:07+00:00"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v5.6.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "974605fcd22a7e4d19f0b2ef635a0d1d7400387d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/974605fcd22a7e4d19f0b2ef635a0d1d7400387d",
+                "reference": "974605fcd22a7e4d19f0b2ef635a0d1d7400387d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.6.*",
+                "illuminate/routing": "5.6.*",
+                "illuminate/session": "5.6.*",
+                "illuminate/support": "5.6.*",
+                "illuminate/view": "5.6.*",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "illuminate/database": "5.6.*",
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~7.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.6-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Collective\\Html\\HtmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Collective\\Html\\FormFacade",
+                        "Html": "Collective\\Html\\HtmlFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "https://laravelcollective.com",
+            "time": "2018-06-18T15:04:16+00:00"
         },
         {
             "name": "league/flysystem",
@@ -2339,9 +2457,124 @@
                 "environment"
             ],
             "time": "2016-09-01T10:05:43+00:00"
+        },
+        {
+            "name": "wotta/commands-module",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wotta/commands-module.git",
+                "reference": "b9f010b96494e59e46b4799adf7b5ad1209849a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wotta/commands-module/zipball/b9f010b96494e59e46b4799adf7b5ad1209849a4",
+                "reference": "b9f010b96494e59e46b4799adf7b5ad1209849a4",
+                "shasum": ""
+            },
+            "require": {
+                "armandsar/laravel-quick-view": "^1.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ConceptCore\\CommandsModule\\CommandsServiceProvider"
+                    ],
+                    "aliases": {
+                        "commands-module": "ConceptCore\\CommandsModule\\CommandsFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ConceptCore\\CommandsModule\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wouter van Marrum",
+                    "email": "wouter.van.marrum@concept-core.nl",
+                    "homepage": "https://github.com/concept-core",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This module holds some easy to use commands for a laravel project",
+            "homepage": "https://github.com/concept-core/commands-module",
+            "keywords": [
+                "commands-module",
+                "concept-core"
+            ],
+            "time": "2018-04-18T13:31:50+00:00"
         }
     ],
     "packages-dev": [
+        {
+            "name": "beyondcode/laravel-inline-translation",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beyondcode/laravel-inline-translation.git",
+                "reference": "205ba4623c42107bfd0064c5e692a3428bbc6f2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beyondcode/laravel-inline-translation/zipball/205ba4623c42107bfd0064c5e692a3428bbc6f2d",
+                "reference": "205ba4623c42107bfd0064c5e692a3428bbc6f2d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.0",
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BeyondCode\\InlineTranslation\\InlineTranslationServiceProvider"
+                    ],
+                    "aliases": {
+                        "InlineTranslation": "BeyondCode\\InlineTranslation\\InlineTranslationFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BeyondCode\\InlineTranslation\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "marcel@beyondco.de",
+                    "homepage": "https://beyondcode.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add inline translation capabilities to your Laravel application.",
+            "homepage": "https://github.com/beyondcode/laravel-inline-translation",
+            "keywords": [
+                "beyondcode",
+                "laravel-inline-translation"
+            ],
+            "time": "2018-07-23T11:28:58+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.1.0",
@@ -4041,7 +4274,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1.3"
+        "php": "^7.2"
     },
     "platform-dev": []
 }
