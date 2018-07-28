@@ -116,11 +116,11 @@ return [
         ],
         [
             'text' => 'Overview',
-            'url' => '/',
+            'url'  => '/',
             'icon' => 'home',
         ],
         'Accounts' => [
-            'text' => 'accounts',
+            'text'    => 'accounts',
             'submenu' => [
                 [
                     'text'        => 'Own accounts',
@@ -149,9 +149,9 @@ return [
         ],
         [
             'text' => 'Berichten',
-            'url' => 'messages',
+            'url'  => 'messages',
             'icon' => 'envelope',
-        ]
+        ],
     ],
 
     /*

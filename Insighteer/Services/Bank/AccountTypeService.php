@@ -2,7 +2,6 @@
 
 namespace Insighteer\Services\Bank;
 
-use Illuminate\Support\Collection;
 use Insighteer\Repositories\Bank\AccountTypeRepository;
 use Insighteer\Services\LaravelBaseService;
 
