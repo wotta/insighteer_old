@@ -2,8 +2,6 @@
 
 namespace Insighteer\Services;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
 use Insighteer\Repositories\LaravelBaseRepositoryInterface;
 
 class LaravelBaseService implements LaravelBaseServiceInterface

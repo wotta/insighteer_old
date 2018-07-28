@@ -8,8 +8,10 @@ interface LaravelBaseRepositoryInterface
 
     /**
      * @param array $attributes
-     * @return object
+     *
      * @throws Illuminate\Database\QueryException
+     *
+     * @return object
      */
     public function create(array $attributes): object;
 

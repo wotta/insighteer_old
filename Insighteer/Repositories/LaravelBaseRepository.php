@@ -3,8 +3,6 @@
 namespace Insighteer\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
-use Insighteer\Repositories\Bank\AccountTypeRepository;
 use Insighteer\Transformers\TransformerInterface;
 
 abstract class LaravelBaseRepository implements LaravelBaseRepositoryInterface

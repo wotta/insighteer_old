@@ -3,8 +3,6 @@
 namespace Insighteer\Repositories\Bank;
 
 use App\Models\Bank\AccountType;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
 use Insighteer\Repositories\LaravelBaseRepository;
 use Insighteer\Transformers\AccountTypeTransformer;
 
