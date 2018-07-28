@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d549b5c4b2672d289ff5baf078639516",
+    "content-hash": "4c91362e6c332e482342a685e4381b1b",
     "packages": [
         {
             "name": "armandsar/laravel-quick-view",
@@ -2517,6 +2517,64 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "beyondcode/laravel-inline-translation",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beyondcode/laravel-inline-translation.git",
+                "reference": "205ba4623c42107bfd0064c5e692a3428bbc6f2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beyondcode/laravel-inline-translation/zipball/205ba4623c42107bfd0064c5e692a3428bbc6f2d",
+                "reference": "205ba4623c42107bfd0064c5e692a3428bbc6f2d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.0",
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BeyondCode\\InlineTranslation\\InlineTranslationServiceProvider"
+                    ],
+                    "aliases": {
+                        "InlineTranslation": "BeyondCode\\InlineTranslation\\InlineTranslationFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BeyondCode\\InlineTranslation\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "marcel@beyondco.de",
+                    "homepage": "https://beyondcode.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add inline translation capabilities to your Laravel application.",
+            "homepage": "https://github.com/beyondcode/laravel-inline-translation",
+            "keywords": [
+                "beyondcode",
+                "laravel-inline-translation"
+            ],
+            "time": "2018-07-23T11:28:58+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.1.0",
