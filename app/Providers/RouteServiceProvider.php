@@ -2,34 +2,17 @@
 
 namespace App\Providers;
 
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
-use Insighteer\Routes\LaravelRouteModelBinder;
 
 class RouteServiceProvider extends ServiceProvider
 {
     /** @var string */
     protected $namespace = 'App\Http\Controllers';
 
-    /** @var LaravelRouteModelBinder */
-    private $routeModelBinder;
-
     public function boot(): void
     {
         parent::boot();
-
-        $this->routeModelBinder = $this->app->make(LaravelRouteModelBinder::class);
-        $this->routeModelBinder->setupRouteBindings();
-    }
-
-    public function register()
-    {
-        $this->app->when(LaravelRouteModelBinder::class)
-            ->needs('$routeBindings')
-            ->give(function () {
-                return config('insighteer.route_bindings');
-            });
     }
 
     /**
@@ -40,8 +23,6 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
         $this->mapApiRoutes();
-
-        $this->mapAuthRoutes();
 
         $this->mapWebRoutes();
     }
@@ -73,12 +54,5 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
-    }
-
-    private function mapAuthRoutes()
-    {
-        Route::middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/auth.php'));
     }
 }
