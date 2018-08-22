@@ -2,13 +2,11 @@
 
 namespace App\Nova;
 
-use App\Company as CompanyModel;
+use App\Models\Company as CompanyModel;
 use Laravel\Nova\Fields\Country;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Company extends Resource
 {
