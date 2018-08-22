@@ -2,30 +2,31 @@
 
 namespace App\Nova;
 
-use App\Models\Company as CompanyModel;
+use App\Models\Address as AddressModel;
 use App\Nova\Fields\AddressFields;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Country;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\MorphToMany;
+use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Panel;
 
-class Company extends Resource
+class Address extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = CompanyModel::class;
+    public static $model = AddressModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'address';
 
     /**
      * The columns that should be searched.
@@ -34,7 +35,12 @@ class Company extends Resource
      */
     public static $search = [
         'id',
-        'name',
+        'address',
+        'second_address',
+        'city',
+        'state',
+        'postal_code',
+        'country_code',
     ];
 
     /**
@@ -48,11 +54,17 @@ class Company extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make(__('general.name'), 'name')
-                ->sortable()
-                ->rules('required'),
+            Place::make('address', 'address'),
 
-            MorphMany::make('Addresses'),
+            Text::make('Address Line 2', 'second_address')->hideFromIndex(),
+
+            Text::make('City'),
+
+            Text::make('State')->hideFromIndex(),
+
+            Text::make('Postal Code')->hideFromIndex(),
+
+            Country::make('Country code')->hideFromIndex(),
         ];
     }
 

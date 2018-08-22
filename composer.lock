@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "15226c7188219005754c2ac3bd80b8da",
+    "content-hash": "f173b9f8bfab69b2b35cc256c0c2d759",
     "packages": [
         {
             "name": "armandsar/laravel-quick-view",
@@ -55,6 +55,57 @@
                 "view"
             ],
             "time": "2018-04-24T12:43:58+00:00"
+        },
+        {
+            "name": "beyondcode/nova-tinker-tool",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beyondcode/nova-tinker-tool.git",
+                "reference": "ee63e2483161665718e39143474330650e0832fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beyondcode/nova-tinker-tool/zipball/ee63e2483161665718e39143474330650e0832fc",
+                "reference": "ee63e2483161665718e39143474330650e0832fc",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "*",
+                "laravel/tinker": "^1.0",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Beyondcode\\TinkerTool\\TinkerToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Beyondcode\\TinkerTool\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marcel Pociot",
+                    "email": "marcel@beyondco.de",
+                    "homepage": "https://beyondco.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Use Laravel tinker from Nova.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2018-08-22T11:33:23+00:00"
         },
         {
             "name": "cakephp/chronos",
