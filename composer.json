@@ -4,17 +4,22 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./nova"
+        }
+    ],
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
-        "jeroennoten/laravel-adminlte": "^1.23",
         "laravel/framework": "5.6.*",
+        "laravel/nova": "*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
         "wotta/commands-module": "^1.4"
     },
     "require-dev": {
-        "beyondcode/laravel-inline-translation": "^0.1.0",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
