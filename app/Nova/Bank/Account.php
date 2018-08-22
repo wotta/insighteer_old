@@ -8,7 +8,6 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Account extends Resource
 {
@@ -37,6 +36,11 @@ class Account extends Resource
         'bic',
         'bank_name',
     ];
+
+    public function subtitle()
+    {
+        return __('bank.bank_name', ['name' => $this->bank_name]);
+    }
 
     /**
      * Get the fields displayed by the resource.
