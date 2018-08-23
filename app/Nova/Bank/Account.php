@@ -56,9 +56,13 @@ class Account extends Resource
 
             BelongsTo::make('AccountType'),
 
-            Text::make(__('bank.iban'), 'iban')
-                ->sortable()
-                ->rules('required', 'max:32'),
+//            IbanValidationField::make(__('bank.iban'), 'iban')
+//                ->sortable()
+//                ->rules('required', 'max:32'),
+
+//            Text::make(__('bank.iban'), 'iban')
+//                ->sortable()
+//                ->rules('required', 'max:32'),
 
             Text::make(__('bank.bic'), 'bic')
                 ->sortable()

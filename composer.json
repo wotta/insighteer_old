@@ -14,7 +14,7 @@
         },
         {
             "type": "path",
-            "url": "./nova-components/iban-validation-field"
+            "url": "./nova-components/IbanValidationField"
         }
     ],
     "require": {
