@@ -6,6 +6,7 @@ jobs:
     working_directory: ~/laravel
     steps:
     - checkout
+    - run: sudo apt-get install software-properties-common
     - run: sudo add-apt-repository ppa:ondrej/php
     - run: sudo apt update
     - run: sudo apt-get install -y libsqlite3-dev php7.1-bcmath
