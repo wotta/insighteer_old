@@ -6,6 +6,7 @@ use App\Models\Address as AddressModel;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Country;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Text;
 
@@ -51,6 +52,10 @@ class Address extends Resource
     {
         return [
             ID::make()->sortable(),
+
+            MorphTo::make('Addressable')->types([
+                Company::class,
+            ]),
 
             Place::make('address', 'address'),
 
