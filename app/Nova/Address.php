@@ -64,7 +64,7 @@ class Address extends Resource
 
             Text::make('Postal Code')->hideFromIndex(),
 
-            Country::make('Country code')->hideFromIndex(),
+            Country::make('Country code'),
         ];
     }
 
