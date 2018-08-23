@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name' => 'naam',
-    'description' => 'beschrijving',
+    'name'          => 'naam',
+    'description'   => 'beschrijving',
     'is_commercial' => 'commercieel',
 ];
