@@ -1,13 +1,20 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "wotta/insighteer",
+    "description": "A laravel nova based financial insight application.",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "repositories": [
         {
             "type": "path",
             "url": "./nova"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/iban-validation-field"
         }
     ],
     "require": {
@@ -18,7 +25,8 @@
         "laravel/nova": "*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
-        "wotta/commands-module": "^1.4"
+        "wotta/commands-module": "^1.4",
+        "wotta/iban-validation-field": "*"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
@@ -44,8 +52,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "dont-discover": []
         }
     },
     "scripts": {

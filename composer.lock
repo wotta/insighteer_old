@@ -4,8 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f173b9f8bfab69b2b35cc256c0c2d759",
+    "content-hash": "e8d6934e6131c45d3a7ec1f1be0caa37",
     "packages": [
+        {
+            "name": "Wotta/IbanValidationField",
+            "version": "dev-develop",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/IbanValidationField",
+                "reference": "e580f4edd73b3a7c74b215a7ba4216aceadd4bac",
+                "shasum": null
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Wotta\\IbanValidationField\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wotta\\IbanValidationField\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova resource tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ]
+        },
         {
             "name": "armandsar/laravel-quick-view",
             "version": "1.0.1",
