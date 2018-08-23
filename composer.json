@@ -11,10 +11,6 @@
         {
             "type": "path",
             "url": "./nova"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/IbanValidationField"
         }
     ],
     "require": {
@@ -25,8 +21,7 @@
         "laravel/nova": "*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
-        "wotta/commands-module": "^1.4",
-        "wotta/iban-validation-field": "*"
+        "wotta/commands-module": "^1.4"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

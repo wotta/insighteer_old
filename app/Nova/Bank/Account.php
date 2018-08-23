@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Wotta\IbanValidationField\IbanValidationField;
 
 class Account extends Resource
 {
@@ -56,13 +57,9 @@ class Account extends Resource
 
             BelongsTo::make('AccountType'),
 
-//            IbanValidationField::make(__('bank.iban'), 'iban')
-//                ->sortable()
-//                ->rules('required', 'max:32'),
-
-//            Text::make(__('bank.iban'), 'iban')
-//                ->sortable()
-//                ->rules('required', 'max:32'),
+            Text::make(__('bank.iban'), 'iban')
+                ->sortable()
+                ->rules('required', 'max:32'),
 
             Text::make(__('bank.bic'), 'bic')
                 ->sortable()
