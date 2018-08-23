@@ -6,8 +6,8 @@ jobs:
     working_directory: ~/laravel
     steps:
     - checkout
-    - run: sudo apt install -y libsqlite3-dev php-bcmath
-    - run: sudo composer self-update
+    - run: apt install -y libsqlite3-dev php-bcmath
+    - run: composer self-update
     - restore_cache:
         keys:
         - composer-v1-{{ checksum "composer.json" }}
