@@ -11,22 +11,16 @@
         {
             "type": "path",
             "url": "./nova"
-        },
-        {
-            "type": "path",
-            "url": "./nova-components/IbanValidation"
         }
     ],
     "require": {
         "php": "^7.2",
         "beyondcode/nova-tinker-tool": "^0.0.1",
         "fideloper/proxy": "^4.0",
-        "intervention/validation": "^1.2",
         "laravel/framework": "5.6.*",
         "laravel/nova": "*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
-        "wotta/IbanValidation": "*",
         "wotta/commands-module": "^1.4"
     },
     "require-dev": {
