@@ -17,11 +17,13 @@
         "php": "^7.2",
         "beyondcode/nova-tinker-tool": "^0.0.1",
         "fideloper/proxy": "^4.0",
+        "intervention/validation": "^1.2",
         "laravel/framework": "5.6.*",
         "laravel/nova": "*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
-        "wotta/commands-module": "^1.4"
+        "wotta/commands-module": "^1.4",
+        "wotta/iban-validation": "^0.0.1"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
