@@ -2,8 +2,10 @@
 
 namespace App\Models\Payments;
 
+use App\Models\Status;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Payment extends Model
 {
@@ -17,5 +19,10 @@ class Payment extends Model
     public function balance(): BelongsTo
     {
         return $this->belongsTo(Balance::class);
+    }
+
+    public function status(): MorphOne
+    {
+        $this->morphOne(Status::class, 'statusable');
     }
 }
