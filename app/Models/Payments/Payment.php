@@ -14,6 +14,8 @@ class Payment extends Model
         'description',
         'reference',
         'amount',
+        'recurring',
+        'recurring_day',
     ];
 
     public function balance(): BelongsTo

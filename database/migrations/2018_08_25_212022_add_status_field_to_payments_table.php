@@ -14,7 +14,7 @@ class AddStatusFieldToPaymentsTable extends Migration
     public function up()
     {
         Schema::table('payments', function (Blueprint $table) {
-            $table->unsignedInteger('status_id')->after('balance_id');
+            $table->unsignedInteger('status_id')->nullable()->after('balance_id');
 
             $table->foreign('status_id')
                 ->references('id')

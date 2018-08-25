@@ -15,7 +15,7 @@ class AddRecurringFieldsToPaymentsTable extends Migration
     {
         Schema::table('payments', function (Blueprint $table) {
             $table->boolean('recurring')->after('status_id')->default(false);
-            $table->unsignedInteger('recurring_day')->after('recurring');
+            $table->unsignedInteger('recurring_day')->after('recurring')->nullable();
         });
     }
 

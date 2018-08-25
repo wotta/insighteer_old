@@ -5,9 +5,11 @@ namespace App\Nova\Payments;
 use App\Models\Payments\Payment as PaymentModel;
 use App\Nova\Resource;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Vyuldashev\NovaMoneyField\Money;
@@ -67,6 +69,11 @@ class Payment extends Resource
 
             Money::make(__('payment.amount'), 'EUR', 'amount')
                 ->storedInMinorUnits(),
+
+            Boolean::make(__('payment.recurring'), 'recurring'),
+
+            Number::make(__('payment.recurring_day'), 'recurring_day')
+                ->rules('required_if:recurring,on', 'max:28'),
         ];
     }
 
