@@ -4,9 +4,11 @@ namespace App\Nova\Payments;
 
 use App\Models\Payments\Payment as PaymentModel;
 use App\Nova\Resource;
+use App\Nova\Status;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Currency;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Number;
@@ -57,6 +59,8 @@ class Payment extends Resource
                 ->searchable()
                 ->sortable(),
 
+            BelongsTo::make('Status', null, Status::class),
+
             Text::make(__('payment.name'), 'name')
                 ->sortable()
                 ->rules('required', 'max:255'),
@@ -65,7 +69,8 @@ class Payment extends Resource
 
             Text::make(__('payment.reference'), 'reference')
                 ->sortable()
-                ->rules('nullable', 'max:255'),
+                ->rules('nullable', 'max:255')
+                ->hideFromIndex(),
 
             Money::make(__('payment.amount'), 'EUR', 'amount')
                 ->storedInMinorUnits(),
@@ -73,7 +78,8 @@ class Payment extends Resource
             Boolean::make(__('payment.recurring'), 'recurring'),
 
             Number::make(__('payment.recurring_day'), 'recurring_day')
-                ->rules('required_if:recurring,on', 'max:28'),
+                ->rules('required_if:recurring,1', 'between:1,28')
+                ->hideFromIndex(),
         ];
     }
 
