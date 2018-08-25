@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Vyuldashev\NovaMoneyField\Money;
 
 class Balance extends Resource
 {
@@ -52,11 +53,11 @@ class Balance extends Resource
             BelongsTo::make('Account', null, Account::class)
                 ->searchable(),
 
-            Currency::make(__('payment.balance'), 'amount')
-                ->format('%.2n'),
+            Money::make(__('payment.balance'), 'EUR', 'amount')
+                ->storedInMinorUnits(),
 
-            Currency::make(__('payment.previous_balance'), 'previous_amount')
-                ->format('%.2n'),
+            Money::make(__('payment.balance'), 'EUR', 'previous_amount')
+                ->storedInMinorUnits(),
 
             HasMany::make('Payments', null, Payment::class),
         ];

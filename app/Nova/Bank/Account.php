@@ -3,9 +3,13 @@
 namespace App\Nova\Bank;
 
 use App\Models\Bank\Account as AccountModel;
+use App\Nova\Metrics\Payments\PaymentsPerDay;
+use App\Nova\Payments\Balance;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Wotta\IbanValidation\IbanValidation;
@@ -66,6 +70,8 @@ class Account extends Resource
                 ->rules('nullable', 'max:11'),
 
             Text::make(__('bank.name'), 'bank_name'),
+
+            HasMany::make('Balance', null, Balance::class),
         ];
     }
 
@@ -78,7 +84,9 @@ class Account extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            new PaymentsPerDay,
+        ];
     }
 
     /**

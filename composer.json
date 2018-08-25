@@ -22,6 +22,7 @@
         "laravel/nova": "*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
+        "vyuldashev/nova-money-field": "^1.0",
         "wotta/commands-module": "^1.4",
         "wotta/iban-validation": "^0.0.1"
     },

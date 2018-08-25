@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
+use Vyuldashev\NovaMoneyField\Money;
 
 class Payment extends Resource
 {
@@ -64,7 +65,8 @@ class Payment extends Resource
                 ->sortable()
                 ->rules('nullable', 'max:255'),
 
-            Currency::make(__('payment.amount'), 'amount'),
+            Money::make(__('payment.amount'), 'EUR', 'amount')
+                ->storedInMinorUnits(),
         ];
     }
 
