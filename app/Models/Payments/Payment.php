@@ -23,6 +23,6 @@ class Payment extends Model
 
     public function status(): MorphOne
     {
-        $this->morphOne(Status::class, 'statusable');
+        $this->HasOne(Status::class);
     }
 }
