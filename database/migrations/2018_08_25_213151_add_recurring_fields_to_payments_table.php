@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddStatusFieldToPaymentsTable extends Migration
+class AddRecurringFieldsToPaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +14,8 @@ class AddStatusFieldToPaymentsTable extends Migration
     public function up()
     {
         Schema::table('payments', function (Blueprint $table) {
-            $table->unsignedInteger('status_id')->after('balance_id');
-
-            $table->foreign('status_id')
-                ->references('id')
-                ->on('statuses');
+            $table->boolean('recurring')->after('status_id')->default(false);
+            $table->unsignedInteger('recurring_day')->after('recurring');
         });
     }
 
@@ -30,8 +27,7 @@ class AddStatusFieldToPaymentsTable extends Migration
     public function down()
     {
         Schema::table('payments', function (Blueprint $table) {
-            $table->dropForeign('status_id');
-            $table->dropColumn('status_id');
+            $table->dropColumn(['recurring', 'recurring_day']);
         });
     }
 }
