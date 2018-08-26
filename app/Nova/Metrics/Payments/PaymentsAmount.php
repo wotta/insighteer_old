@@ -6,7 +6,7 @@ use App\Models\Payments\Payment;
 use Illuminate\Http\Request;
 use Laravel\Nova\Metrics\Trend;
 
-class PaymentsPerDay extends Trend
+class PaymentsAmount extends Trend
 {
     public function __construct(string $calculationType = 'count', ?string $component = null)
     {

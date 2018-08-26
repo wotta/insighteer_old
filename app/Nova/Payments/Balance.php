@@ -53,11 +53,9 @@ class Balance extends Resource
             BelongsTo::make('Account', null, Account::class)
                 ->searchable(),
 
-            Money::make(__('payment.balance'), 'EUR', 'amount')
-                ->storedInMinorUnits(),
+            Money::make(__('payment.balance'), 'EUR', 'amount'),
 
-            Money::make(__('payment.balance'), 'EUR', 'previous_amount')
-                ->storedInMinorUnits(),
+            Money::make(__('payment.balance'), 'EUR', 'previous_amount'),
 
             HasMany::make('Payments', null, Payment::class),
         ];

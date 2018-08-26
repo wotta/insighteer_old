@@ -71,8 +71,7 @@ class Payment extends Resource
                 ->rules('nullable', 'max:255')
                 ->hideFromIndex(),
 
-            Money::make(__('payment.amount'), 'EUR', 'amount')
-                ->storedInMinorUnits(),
+            Money::make(__('payment.amount'), 'EUR', 'amount'),
 
             Boolean::make(__('payment.recurring'), 'recurring'),
 

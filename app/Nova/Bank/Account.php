@@ -3,7 +3,7 @@
 namespace App\Nova\Bank;
 
 use App\Models\Bank\Account as AccountModel;
-use App\Nova\Metrics\Payments\PaymentsPerDay;
+use App\Nova\Metrics\Payments\PaymentsAmount;
 use App\Nova\Payments\Balance;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
@@ -84,7 +84,7 @@ class Account extends Resource
     public function cards(Request $request)
     {
         return [
-            new PaymentsPerDay(),
+            new PaymentsAmount(),
         ];
     }
 
