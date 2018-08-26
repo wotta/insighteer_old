@@ -5,11 +5,10 @@ namespace App\Nova\Payments;
 use App\Models\Payments\Balance as BalanceModels;
 use App\Nova\Bank\Account;
 use App\Nova\Resource;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
-use Illuminate\Http\Request;
 use Vyuldashev\NovaMoneyField\Money;
 
 class Balance extends Resource
@@ -36,13 +35,14 @@ class Balance extends Resource
     public static $search = [
         'id',
         'amount',
-        'previous_amount'
+        'previous_amount',
     ];
 
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function fields(Request $request)
@@ -66,7 +66,8 @@ class Balance extends Resource
     /**
      * Get the cards available for the request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function cards(Request $request)
@@ -77,7 +78,8 @@ class Balance extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function filters(Request $request)
@@ -88,7 +90,8 @@ class Balance extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function lenses(Request $request)
@@ -99,7 +102,8 @@ class Balance extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function actions(Request $request)
