@@ -7,8 +7,6 @@ use App\Nova\Resource;
 use App\Nova\Status;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Currency;
-use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Number;
@@ -78,7 +76,7 @@ class Payment extends Resource
             Boolean::make(__('payment.recurring'), 'recurring'),
 
             Number::make(__('payment.recurring_day'), 'recurring_day')
-                ->rules('required_if:recurring,1', 'between:1,28')
+                ->rules('required_if:recurring,1', 'between:0,28')
                 ->hideFromIndex(),
         ];
     }

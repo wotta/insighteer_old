@@ -26,7 +26,8 @@ class PaymentsPerDay extends Trend
      */
     public function calculate(Request $request)
     {
-        return $this->countByDays($request, Payment::class)
+        return $this->sumByDays($request, Payment::class, 'amount')
+            ->euros()
             ->showLatestValue();
     }
 
@@ -39,10 +40,10 @@ class PaymentsPerDay extends Trend
     {
         return [
             7 => '7 Days',
-            15 => '15 Days',
-            30 => '30 Days',
-            60 => '60 Days',
-            90 => '90 Days',
+            15 => '14 Days',
+            30 => '1 Month',
+            60 => '2 Months',
+            90 => '3 Months',
         ];
     }
 
