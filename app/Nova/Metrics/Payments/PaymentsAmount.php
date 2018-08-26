@@ -40,7 +40,7 @@ class PaymentsAmount extends Trend
     public function ranges()
     {
         return [
-            7 => '7 Days',
+            7  => '7 Days',
             15 => '14 Days',
             30 => '1 Month',
             60 => '2 Months',
