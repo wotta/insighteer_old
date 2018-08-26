@@ -21,7 +21,8 @@ class PaymentsPerDay extends Trend
     /**
      * Calculate the value of the metric.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return mixed
      */
     public function calculate(Request $request)
@@ -38,7 +39,7 @@ class PaymentsPerDay extends Trend
     public function ranges()
     {
         return [
-            7 => '7 Days',
+            7  => '7 Days',
             15 => '15 Days',
             30 => '30 Days',
             60 => '60 Days',
@@ -49,7 +50,7 @@ class PaymentsPerDay extends Trend
     /**
      * Determine for how many minutes the metric should be cached.
      *
-     * @return  \DateTimeInterface|\DateInterval|float|int
+     * @return \DateTimeInterface|\DateInterval|float|int
      */
     public function cacheFor()
     {

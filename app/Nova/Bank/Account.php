@@ -9,7 +9,6 @@ use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Wotta\IbanValidation\IbanValidation;
@@ -85,7 +84,7 @@ class Account extends Resource
     public function cards(Request $request)
     {
         return [
-            new PaymentsPerDay,
+            new PaymentsPerDay(),
         ];
     }
 
