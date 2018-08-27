@@ -7,25 +7,25 @@
     ],
     "license": "MIT",
     "type": "project",
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./nova"
-        }
-    ],
     "require": {
         "php": "^7.2",
         "beyondcode/nova-tinker-tool": "^0.0.1",
         "fideloper/proxy": "^4.0",
         "intervention/validation": "^1.2",
         "laravel/framework": "5.6.*",
-        "laravel/nova": "*",
+        "laravel/nova": "^1",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
         "vyuldashev/nova-money-field": "^1.0",
         "wotta/commands-module": "^1.4",
         "wotta/iban-validation": "^0.0.1"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@bitbucket.org:wotta/nova.git"
+        }
+    ],
     "require-dev": {
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
