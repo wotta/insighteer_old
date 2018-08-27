@@ -5,9 +5,6 @@ jobs:
     - image: circleci/php:7.2.8-browsers
     working_directory: ~/laravel
     steps:
-    - add_ssh_keys:
-      - fingerprints:
-        - "ca:72:1d:d2:cb:fe:ab:03:d8:e5:f2:12:37:e9:35:b4"
     - checkout
     - run: sudo apt-get install -y libsqlite3-dev
     - run: sudo docker-php-ext-install bcmath
