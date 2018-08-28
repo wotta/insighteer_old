@@ -14,6 +14,7 @@
         "intervention/validation": "^1.2",
         "laravel/framework": "5.6.*",
         "laravel/nova": "^1",
+        "laravel/scout": "^5.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
         "vyuldashev/nova-money-field": "^1.0",
