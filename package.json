@@ -9,7 +9,8 @@
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "build-IbanValidation": "cd nova-components/IbanValidation && npm run dev",
-        "build-IbanValidation-prod": "cd nova-components/IbanValidation && npm run prod"
+        "build-IbanValidation-prod": "cd nova-components/IbanValidation && npm run prod",
+        "sync-external": "node ./resources/assets/js/externalSyncs/kasboekSync.js"
     },
     "devDependencies": {
         "axios": "^0.18",
@@ -22,6 +23,8 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "feather-icons": "^4.7.3"
+        "dotenv": "^6.0.0",
+        "feather-icons": "^4.7.3",
+        "puppeteer": "^1.7.0"
     }
 }
