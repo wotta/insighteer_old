@@ -15,6 +15,11 @@ class Payment extends Model
         'amount',
         'recurring',
         'recurring_day',
+        'payment_date',
+    ];
+
+    protected $casts = [
+        'payment_date',
     ];
 
     public function balance(): BelongsTo
