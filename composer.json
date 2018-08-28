@@ -9,6 +9,7 @@
     "type": "project",
     "require": {
         "php": "^7.2",
+        "algolia/algoliasearch-client-php": "^1.27",
         "beyondcode/nova-tinker-tool": "^0.0.1",
         "fideloper/proxy": "^4.0",
         "intervention/validation": "^1.2",
