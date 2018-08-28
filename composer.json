@@ -9,11 +9,13 @@
     "type": "project",
     "require": {
         "php": "^7.2",
+        "algolia/algoliasearch-client-php": "^1.27",
         "beyondcode/nova-tinker-tool": "^0.0.1",
         "fideloper/proxy": "^4.0",
         "intervention/validation": "^1.2",
         "laravel/framework": "5.6.*",
         "laravel/nova": "^1",
+        "laravel/scout": "^5.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
         "vyuldashev/nova-money-field": "^1.0",
