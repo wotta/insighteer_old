@@ -3,6 +3,7 @@
 namespace App\Nova\Payments;
 
 use App\Models\Payments\Payment as PaymentModel;
+use App\Nova\Company;
 use App\Nova\Resource;
 use App\Nova\Status;
 use Illuminate\Http\Request;
@@ -54,6 +55,10 @@ class Payment extends Resource
     {
         return [
             ID::make()->sortable(),
+
+            BelongsTo::make('Company', null, Company::class)
+                ->searchable()
+                ->sortable(),
 
             BelongsTo::make('Balance', null, Balance::class)
                 ->searchable()

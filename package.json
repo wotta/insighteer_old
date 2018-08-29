@@ -10,7 +10,11 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "build-IbanValidation": "cd nova-components/IbanValidation && npm run dev",
         "build-IbanValidation-prod": "cd nova-components/IbanValidation && npm run prod",
-        "sync-external": "node ./resources/assets/js/externalSyncs/kasboekSync.js"
+        "sync-external": "node ./resources/assets/js/externalSyncs/kasboekSync.js",
+        "build-sync-runner": "cd nova-components/SyncRunner && npm run dev",
+        "build-sync-runner-prod": "cd nova-components/SyncRunner && npm run prod",
+        "build-sync-card": "cd nova-components/SyncCard && npm run dev",
+        "build-sync-card-prod": "cd nova-components/SyncCard && npm run prod"
     },
     "devDependencies": {
         "axios": "^0.18",
