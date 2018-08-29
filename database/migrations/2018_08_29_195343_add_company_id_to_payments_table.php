@@ -14,7 +14,7 @@ class AddCompanyIdToPaymentsTable extends Migration
     public function up()
     {
         Schema::table('payments', function (Blueprint $table) {
-            $table->unsignedInteger('payment_id')->nullable()->after('status_id');
+            $table->unsignedInteger('company_id')->nullable()->after('status_id');
         });
     }
 
@@ -26,7 +26,7 @@ class AddCompanyIdToPaymentsTable extends Migration
     public function down()
     {
         Schema::table('payments', function (Blueprint $table) {
-            $table->dropColumn('payment_id');
+            $table->dropColumn('company_id');
         });
     }
 }
