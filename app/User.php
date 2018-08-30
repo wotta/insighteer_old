@@ -9,7 +9,6 @@ use Laravel\Scout\Searchable;
 
 class User extends Authenticatable
 {
-    use SoftDeletes;
     use Searchable;
     use Notifiable;
 
