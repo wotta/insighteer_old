@@ -42,9 +42,15 @@ class CashBookSync implements ShouldQueue
         $jsonData = json_decode($jsonString);
 
         foreach ($jsonData as $data) {
+            $paymentData = Carbon::createFromFormat('d-m-Y', $data->paymentDate);
+
             $company = Company::firstOrCreate(['name' => $data->company]);
 
-            $payment = $balance->payments->where('description' , $data->description)->where('amount', $data->amount)->first();
+            $payment = $balance->payments
+                ->where('description' , $data->description)
+                ->where('amount', $data->amount)
+                ->where('payment_date', $paymentData)
+                ->first();
 
             if (! $payment) {
                 $payment = $balance->payments()->create([
@@ -53,7 +59,7 @@ class CashBookSync implements ShouldQueue
                     'name' => sprintf('%s - %s', $data->company, $data->description),
                     'description' => $data->description,
                     'amount' => $data->amount,
-                    'payment_date' => Carbon::createFromFormat('d-m-Y', $data->paymentDate),
+                    'payment_date' => $paymentData,
                 ]);
             }
 
