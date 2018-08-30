@@ -4,6 +4,8 @@ namespace App\Jobs\ExternalSyncs;
 
 use App\Models\Company;
 use App\Models\Payments\Balance;
+use App\Models\Status;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -42,18 +44,21 @@ class CashBookSync implements ShouldQueue
         foreach ($jsonData as $data) {
             $company = Company::firstOrCreate(['name' => $data->company]);
 
-            $payment = $balance->payments->where(['description' => $data->description, 'amount' => $data->amount])->first();
+            $payment = $balance->payments->where('description' , $data->description)->where('amount', $data->amount)->first();
 
             if (! $payment) {
-                $balance->payments()->create([
+                $payment = $balance->payments()->create([
                     'status_id' => 1,
                     'company_id' => $company->id,
-                    'name' => sprintf('%s - %s', $data->name, $data->description),
+                    'name' => sprintf('%s - %s', $data->company, $data->description),
                     'description' => $data->description,
                     'amount' => $data->amount,
-                    'payment_date' => $data->paymentDate,
+                    'payment_date' => Carbon::createFromFormat('d-m-Y', $data->paymentDate),
                 ]);
             }
+
+            $payment->company()->associate($company);
+            $payment->status()->associate(Status::where('name', 'open')->firstOrFail());
         }
     }
 }
