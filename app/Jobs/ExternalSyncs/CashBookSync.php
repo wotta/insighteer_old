@@ -7,10 +7,10 @@ use App\Models\Payments\Balance;
 use App\Models\Status;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 
 class CashBookSync implements ShouldQueue
 {
@@ -47,18 +47,18 @@ class CashBookSync implements ShouldQueue
             $company = Company::firstOrCreate(['name' => $data->company]);
 
             $payment = $balance->payments
-                ->where('description' , $data->description)
+                ->where('description', $data->description)
                 ->where('amount', $data->amount)
                 ->where('payment_date', $paymentData)
                 ->first();
 
-            if (! $payment) {
+            if (!$payment) {
                 $payment = $balance->payments()->create([
-                    'status_id' => 1,
-                    'company_id' => $company->id,
-                    'name' => sprintf('%s - %s', $data->company, $data->description),
-                    'description' => $data->description,
-                    'amount' => $data->amount,
+                    'status_id'    => 1,
+                    'company_id'   => $company->id,
+                    'name'         => sprintf('%s - %s', $data->company, $data->description),
+                    'description'  => $data->description,
+                    'amount'       => $data->amount,
                     'payment_date' => $paymentData,
                 ]);
             }
