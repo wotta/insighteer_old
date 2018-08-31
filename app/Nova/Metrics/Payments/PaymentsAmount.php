@@ -27,7 +27,7 @@ class PaymentsAmount extends Trend
      */
     public function calculate(Request $request)
     {
-        return $this->sumByDays($request, Payment::class, 'amount')
+        return $this->sumByDays($request, Payment::class, 'amount', 'payment_date')
             ->euros()
             ->showLatestValue();
     }

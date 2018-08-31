@@ -2,6 +2,7 @@
 
 namespace App\Models\Payments;
 
+use App\Models\Company;
 use App\Models\Status;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,8 +25,13 @@ class Payment extends Model
     ];
 
     protected $casts = [
-        'payment_date',
+        'payment_date' => 'datetime',
     ];
+
+    public function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class);
+    }
 
     public function balance(): BelongsTo
     {
