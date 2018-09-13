@@ -20,8 +20,7 @@
         "laravelcollective/html": "^5.6",
         "vyuldashev/nova-money-field": "^1.0",
         "wotta/commands-module": "^1.4",
-        "wotta/iban-validation": "^0.0.1",
-        "wotta/sync-card": "*"
+        "wotta/iban-validation": "^0.0.1"
     },
     "repositories": [
         {

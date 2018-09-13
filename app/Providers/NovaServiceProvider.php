@@ -58,7 +58,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             new Help(),
-            new SyncCard(),
         ];
     }
 

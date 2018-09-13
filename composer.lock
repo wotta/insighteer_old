@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d79ea3224895314fe0e11a145a4a55b",
+    "content-hash": "de4c2adb785f233c1321507538538f7f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -3087,40 +3087,6 @@
                 "validation"
             ],
             "time": "2018-08-23T21:04:46+00:00"
-        },
-        {
-            "name": "wotta/sync-card",
-            "version": "dev-feature/INS-26",
-            "dist": {
-                "type": "path",
-                "url": "./nova-components/SyncCard",
-                "reference": "1dc22eb73a98d412a340c731d0dd015f311ff625",
-                "shasum": null
-            },
-            "require": {
-                "php": ">=7.1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Wotta\\SyncCard\\CardServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Wotta\\SyncCard\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A Laravel Nova card.",
-            "keywords": [
-                "laravel",
-                "nova"
-            ]
         }
     ],
     "packages-dev": [

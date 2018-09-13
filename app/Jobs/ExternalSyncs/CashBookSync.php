@@ -65,6 +65,7 @@ class CashBookSync implements ShouldQueue
 
             $payment->company()->associate($company);
             $payment->status()->associate(Status::where('name', 'open')->firstOrFail());
+            $payment->save();
         }
     }
 }
