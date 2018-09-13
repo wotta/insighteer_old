@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Payments\Payment;
+use App\Observers\Payments\PaymentObserver;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
@@ -27,6 +29,6 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+//        Payment::observe(PaymentObserver::class);
     }
 }
