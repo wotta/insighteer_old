@@ -15,8 +15,8 @@ class AddBalanceColumnsOnAccountsTable extends Migration
         Schema::enableForeignKeyConstraints();
 
         Schema::table('accounts', function (Blueprint $table) {
-            $table->integer('amount')->after('iban');
-            $table->integer('previous_amount')->after('amount');
+            $table->integer('amount')->default(0)->after('iban');
+            $table->integer('previous_amount')->default(0)->after('amount');
         });
     }
 

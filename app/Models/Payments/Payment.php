@@ -2,6 +2,7 @@
 
 namespace App\Models\Payments;
 
+use App\Models\Bank\Account;
 use App\Models\Company;
 use App\Models\Status;
 use Illuminate\Database\Eloquent\Model;
@@ -33,9 +34,9 @@ class Payment extends Model
         return $this->belongsTo(Company::class);
     }
 
-    public function balance(): BelongsTo
+    public function account(): BelongsTo
     {
-        return $this->belongsTo(Balance::class);
+        return $this->belongsTo(Account::class);
     }
 
     public function status(): BelongsTo
