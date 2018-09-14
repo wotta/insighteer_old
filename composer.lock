@@ -1090,11 +1090,11 @@
         },
         {
             "name": "laravel/nova",
-            "version": "dev-master",
+            "version": "1.0.16",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:wotta/nova.git",
-                "reference": "fef2e7a65c2374f4eb8ee66413b424497f16ece2"
+                "reference": "31d4b36e3025a851938ce8056c75221dab260948"
             },
             "require": {
                 "cakephp/chronos": "~1.0",
@@ -1149,7 +1149,7 @@
                 "admin",
                 "laravel"
             ],
-            "time": "2018-08-27T21:58:29+00:00"
+            "time": "2018-09-14T20:30:53+00:00"
         },
         {
             "name": "laravel/scout",
