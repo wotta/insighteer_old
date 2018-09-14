@@ -11,27 +11,14 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Money\Currencies\ISOCurrencies;
+use Money\Currency;
 
 class CashBookSync implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
-    public function handle()
+    public function handle(): void
     {
         $balance = Balance::with('payments')->whereId(1)->firstOrFail();
 
@@ -42,30 +29,32 @@ class CashBookSync implements ShouldQueue
         $jsonData = json_decode($jsonString);
 
         foreach ($jsonData as $data) {
-            $paymentData = Carbon::createFromFormat('d-m-Y', $data->paymentDate);
+            $paymentDate = Carbon::createFromFormat('d-m-Y', $data->paymentDate);
 
-            $company = Company::firstOrCreate(['name' => $data->company]);
+            $companyName = $data->company ?: config('insighteer.companies.default');
 
-            $payment = $balance->payments
-                ->where('description', $data->description)
-                ->where('amount', $data->amount)
-                ->where('payment_date', $paymentData)
-                ->first();
+            $paymentData = [
+                'name'         => trim(sprintf('%s - %s', $companyName, $data->description)),
+                'description'  => trim($data->description),
+                'amount'       => $data->amount *= $this->minorUnit(),
+                'payment_date' => $paymentDate->format('Y-m-d'),
+            ];
 
-            if (!$payment) {
-                $payment = $balance->payments()->create([
-                    'status_id'    => 1,
-                    'company_id'   => $company->id,
-                    'name'         => sprintf('%s - %s', $data->company, $data->description),
-                    'description'  => $data->description,
-                    'amount'       => $data->amount,
-                    'payment_date' => $paymentData,
-                ]);
-            }
+            $company = Company::firstOrCreate(['name' => $companyName]);
+
+            $payment = $balance->payments()->updateOrCreate($paymentData);
 
             $payment->company()->associate($company);
             $payment->status()->associate(Status::where('name', 'open')->firstOrFail());
+
             $payment->save();
         }
+    }
+
+    public function minorUnit($currency = 'EUR')
+    {
+        $subunit = (new ISOCurrencies())->subunitFor(new Currency($currency));
+
+        return 10 ** $subunit;
     }
 }

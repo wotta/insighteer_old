@@ -9,7 +9,7 @@ use App\Nova\Status;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
@@ -58,17 +58,22 @@ class Payment extends Resource
 
             BelongsTo::make('Company', null, Company::class)
                 ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->hideFromIndex(),
 
             BelongsTo::make('Balance', null, Balance::class)
                 ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->hideFromIndex(),
 
             BelongsTo::make('Status', null, Status::class),
 
             Text::make(__('payment.name'), 'name')
                 ->sortable()
-                ->rules('required', 'max:255'),
+                ->rules('required', 'max:255')
+                ->displayUsing(function ($value) {
+                    return str_limit($value, 30);
+                }),
 
             Textarea::make(__('payment.description'), 'description'),
 
@@ -77,7 +82,8 @@ class Payment extends Resource
                 ->rules('nullable', 'max:255')
                 ->hideFromIndex(),
 
-            Money::make(__('payment.amount'), 'EUR', 'amount'),
+            Money::make(__('payment.amount'), 'EUR', 'amount')
+                ->storedInMinorUnits(),
 
             Boolean::make(__('payment.recurring'), 'recurring'),
 
@@ -85,7 +91,7 @@ class Payment extends Resource
                 ->rules('required_if:recurring,1', 'between:0,28')
                 ->hideFromIndex(),
 
-            DateTime::make(__('payment.payment_date'), 'payment_date'),
+            Date::make(__('payment.payment_date'), 'payment_date'),
         ];
     }
 
