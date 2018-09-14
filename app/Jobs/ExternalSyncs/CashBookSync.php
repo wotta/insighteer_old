@@ -4,7 +4,6 @@ namespace App\Jobs\ExternalSyncs;
 
 use App\Models\Company;
 use App\Models\Payments\Balance;
-use App\Models\Payments\Payment;
 use App\Models\Status;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
@@ -35,9 +34,9 @@ class CashBookSync implements ShouldQueue
             $companyName = $data->company ?: config('insighteer.companies.default');
 
             $paymentData = [
-                'name' => trim(sprintf('%s - %s', $companyName, $data->description)),
-                'description' => trim($data->description),
-                'amount' => $data->amount *= $this->minorUnit(),
+                'name'         => trim(sprintf('%s - %s', $companyName, $data->description)),
+                'description'  => trim($data->description),
+                'amount'       => $data->amount *= $this->minorUnit(),
                 'payment_date' => $paymentDate->format('Y-m-d'),
             ];
 
