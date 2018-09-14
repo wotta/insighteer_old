@@ -4,7 +4,7 @@ namespace App\Nova\Bank;
 
 use App\Models\Bank\Account as AccountModel;
 use App\Nova\Metrics\Payments\PaymentsAmount;
-use App\Nova\Payments\Balance;
+use App\Nova\Payments\Payment;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
@@ -70,7 +70,7 @@ class Account extends Resource
 
             Text::make(__('bank.name'), 'bank_name'),
 
-            HasMany::make('Balance', null, Balance::class),
+            HasMany::make('Payments', null, Payment::class),
         ];
     }
 

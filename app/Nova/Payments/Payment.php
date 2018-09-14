@@ -3,6 +3,7 @@
 namespace App\Nova\Payments;
 
 use App\Models\Payments\Payment as PaymentModel;
+use App\Nova\Bank\Account;
 use App\Nova\Company;
 use App\Nova\Resource;
 use App\Nova\Status;
@@ -61,7 +62,7 @@ class Payment extends Resource
                 ->sortable()
                 ->hideFromIndex(),
 
-            BelongsTo::make('Balance', null, Balance::class)
+            BelongsTo::make('Account', null, Account::class)
                 ->searchable()
                 ->sortable()
                 ->hideFromIndex(),

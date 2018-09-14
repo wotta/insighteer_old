@@ -24,7 +24,7 @@ class Account extends Model
         return $this->belongsTo(AccountType::class);
     }
 
-    public function payment(): HasMany
+    public function payments(): HasMany
     {
         return $this->hasMany(Payment::class);
     }
