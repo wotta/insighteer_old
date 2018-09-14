@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Vyuldashev\NovaMoneyField\Money;
 use Wotta\IbanValidation\IbanValidation;
 
 class Account extends Resource
@@ -63,6 +64,12 @@ class Account extends Resource
             IbanValidation::make(__('bank.iban'), 'iban')
                 ->sortable()
                 ->rules('required', 'max:32', 'iban'),
+
+            Money::make(__('payment.amount'), 'EUR', 'amount')
+                ->storedInMinorUnits(),
+
+            Money::make(__('payment.previous_amount'), 'EUR', 'previous_amount')
+                ->storedInMinorUnits(),
 
             Text::make(__('bank.bic'), 'bic')
                 ->sortable()

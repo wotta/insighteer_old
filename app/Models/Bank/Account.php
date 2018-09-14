@@ -14,6 +14,8 @@ class Account extends Model
 
     protected $fillable = [
         'account_type_id',
+        'amount',
+        'previous_amount',
         'iban',
         'bic',
         'bank_name',

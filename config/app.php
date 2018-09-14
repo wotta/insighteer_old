@@ -161,6 +161,7 @@ return [
         App\Providers\NovaServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\InsighteerServiceProvider::class,
+        App\Providers\ModelObserverProvider::class,
     ],
 
     /*
