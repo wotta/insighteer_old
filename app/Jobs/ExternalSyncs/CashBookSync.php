@@ -2,8 +2,8 @@
 
 namespace App\Jobs\ExternalSyncs;
 
+use App\Models\Bank\Account;
 use App\Models\Company;
-use App\Models\Payments\Balance;
 use App\Models\Status;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
@@ -20,7 +20,7 @@ class CashBookSync implements ShouldQueue
 
     public function handle(): void
     {
-        $balance = Balance::with('payments')->whereId(1)->firstOrFail();
+        $account = Account::with('payments')->whereId(1)->firstOrFail();
 
         $path = resource_path('assets/js/externalSyncs/kasboekSync.js');
 
@@ -42,7 +42,7 @@ class CashBookSync implements ShouldQueue
 
             $company = Company::firstOrCreate(['name' => $companyName]);
 
-            $payment = $balance->payments()->updateOrCreate($paymentData);
+            $payment = $account->payments()->updateOrCreate($paymentData);
 
             $payment->company()->associate($company);
             $payment->status()->associate(Status::where('name', 'open')->firstOrFail());
