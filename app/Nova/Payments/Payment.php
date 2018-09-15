@@ -3,6 +3,7 @@
 namespace App\Nova\Payments;
 
 use App\Models\Payments\Payment as PaymentModel;
+use App\Nova\Bank\Account;
 use App\Nova\Company;
 use App\Nova\Resource;
 use App\Nova\Status;
@@ -18,25 +19,10 @@ use Vyuldashev\NovaMoneyField\Money;
 
 class Payment extends Resource
 {
-    /**
-     * The model the resource corresponds to.
-     *
-     * @var string
-     */
     public static $model = PaymentModel::class;
 
-    /**
-     * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
-     */
     public static $title = 'name';
 
-    /**
-     * The columns that should be searched.
-     *
-     * @var array
-     */
     public static $search = [
         'id',
         'name',
@@ -44,14 +30,12 @@ class Payment extends Resource
         'reference',
     ];
 
-    /**
-     * Get the fields displayed by the resource.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
-    public function fields(Request $request)
+    public function subtitle(): string
+    {
+        return sprintf('%s: %s', ucfirst(__('bank.iban')), $this->account->iban);
+    }
+
+    public function fields(Request $request): array
     {
         return [
             ID::make()->sortable(),
@@ -61,7 +45,7 @@ class Payment extends Resource
                 ->sortable()
                 ->hideFromIndex(),
 
-            BelongsTo::make('Balance', null, Balance::class)
+            BelongsTo::make('Account', null, Account::class)
                 ->searchable()
                 ->sortable()
                 ->hideFromIndex(),
@@ -95,50 +79,22 @@ class Payment extends Resource
         ];
     }
 
-    /**
-     * Get the cards available for the request.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
-    public function cards(Request $request)
+    public function cards(Request $request): array
     {
         return [];
     }
 
-    /**
-     * Get the filters available for the resource.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
-    public function filters(Request $request)
+    public function filters(Request $request): array
     {
         return [];
     }
 
-    /**
-     * Get the lenses available for the resource.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
-    public function lenses(Request $request)
+    public function lenses(Request $request): array
     {
         return [];
     }
 
-    /**
-     * Get the actions available for the resource.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
-    public function actions(Request $request)
+    public function actions(Request $request): array
     {
         return [];
     }

@@ -4,13 +4,14 @@ namespace App\Nova\Bank;
 
 use App\Models\Bank\Account as AccountModel;
 use App\Nova\Metrics\Payments\PaymentsAmount;
-use App\Nova\Payments\Balance;
+use App\Nova\Payments\Payment;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Vyuldashev\NovaMoneyField\Money;
 use Wotta\IbanValidation\IbanValidation;
 
 class Account extends Resource
@@ -64,13 +65,19 @@ class Account extends Resource
                 ->sortable()
                 ->rules('required', 'max:32', 'iban'),
 
+            Money::make(__('payment.amount'), 'EUR', 'amount')
+                ->storedInMinorUnits(),
+
+            Money::make(__('payment.previous_amount'), 'EUR', 'previous_amount')
+                ->storedInMinorUnits(),
+
             Text::make(__('bank.bic'), 'bic')
                 ->sortable()
                 ->rules('nullable', 'max:11'),
 
             Text::make(__('bank.name'), 'bank_name'),
 
-            HasMany::make('Balance', null, Balance::class),
+            HasMany::make('Payments', null, Payment::class),
         ];
     }
 

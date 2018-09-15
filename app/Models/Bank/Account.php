@@ -2,7 +2,7 @@
 
 namespace App\Models\Bank;
 
-use App\Models\Payments\Balance;
+use App\Models\Payments\Payment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,6 +14,8 @@ class Account extends Model
 
     protected $fillable = [
         'account_type_id',
+        'amount',
+        'previous_amount',
         'iban',
         'bic',
         'bank_name',
@@ -24,8 +26,8 @@ class Account extends Model
         return $this->belongsTo(AccountType::class);
     }
 
-    public function balance(): HasMany
+    public function payments(): HasMany
     {
-        return $this->hasMany(Balance::class);
+        return $this->hasMany(Payment::class);
     }
 }

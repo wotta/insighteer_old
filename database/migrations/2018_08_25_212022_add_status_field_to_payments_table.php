@@ -30,7 +30,7 @@ class AddStatusFieldToPaymentsTable extends Migration
     public function down()
     {
         Schema::table('payments', function (Blueprint $table) {
-            $table->dropForeign('status_id');
+            $table->dropForeign(['status_id']);
             $table->dropColumn('status_id');
         });
     }
