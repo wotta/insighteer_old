@@ -4,7 +4,6 @@ namespace App\Nova\Metrics\Payments;
 
 use App\Models\Payments\Payment;
 use Illuminate\Http\Request;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
 
 class PaymentsAmount extends Trend
