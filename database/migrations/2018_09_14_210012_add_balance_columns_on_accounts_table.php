@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class AddBalanceColumnsOnAccountsTable extends Migration
 {
@@ -25,7 +25,7 @@ class AddBalanceColumnsOnAccountsTable extends Migration
         Schema::table('accounts', function (Blueprint $table) {
             $table->dropColumn([
                 'amount',
-                'previous_amount'
+                'previous_amount',
             ]);
         });
 
