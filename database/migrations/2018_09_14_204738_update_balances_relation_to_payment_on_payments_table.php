@@ -17,7 +17,7 @@ class UpdateBalancesRelationToPaymentOnPaymentsTable extends Migration
             $table->dropForeign(['balance_id']);
             $table->dropColumn('balance_id');
 
-            $table->unsignedInteger('account_id')->after('id');
+            $table->unsignedInteger('account_id')->nullable()->after('id');
 
             $table->foreign('account_id')
                 ->references('id')
