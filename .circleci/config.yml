@@ -9,7 +9,7 @@ jobs:
     - run: sudo apt-get install -y libsqlite3-dev
     - run: sudo docker-php-ext-install bcmath
     - run: sudo docker-php-ext-install pdo_sqlite
-    - run: docker-php-ext-enable pdo_sqlite
+    - run: sudo apt-get install php7.2-sqlite3
     - run: sudo composer self-update
     - restore_cache:
         keys:
