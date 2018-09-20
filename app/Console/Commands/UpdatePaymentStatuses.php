@@ -14,7 +14,7 @@ class UpdatePaymentStatuses extends Command
 
     public function __construct(Payment $payments)
     {
-        parent::__construct();;
+        parent::__construct();
     }
 
     public function handle()
@@ -23,7 +23,7 @@ class UpdatePaymentStatuses extends Command
             return $query->where('name', 'open');
         })->get();
 
-        if ($payments->count() > 0) {        
+        if ($payments->count() > 0) {
             $progressBar = $this->output->createProgressBar($payments->count());
 
             $payments->each(function (Payment $payment) use ($progressBar) {
