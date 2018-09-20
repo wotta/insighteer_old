@@ -9,19 +9,19 @@ class StatusesSeeder extends Seeder
     {
         Status::insert([
             [
-                'name' => 'open',
+                'name'        => 'open',
                 'description' => __('status.open.description'),
             ],
             [
-                'name' => 'paid',
+                'name'        => 'paid',
                 'description' => __('status.paid.description'),
             ],
             [
-                'name' => 'partially_paid',
+                'name'        => 'partially_paid',
                 'description' => __('status.partially_paid.description'),
             ],
             [
-                'name' => 'refunded',
+                'name'        => 'refunded',
                 'description' => __('status.refunded.description'),
             ],
         ]);
