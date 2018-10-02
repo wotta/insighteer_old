@@ -6,7 +6,7 @@ dotEnv.config();
 (async () => {
   try {
     const browser = await puppeteer.launch({
-      headless:true,
+      headless:false,
       args: ['--no-sandbox']
     });
 
@@ -26,40 +26,50 @@ dotEnv.config();
         });
       });
 
-      await page.click('#tblSubmenu_BR_BR > tbody > tr:nth-child(2) > td > a');
+    await page.click('#tblSubmenu_BR_BR > tbody > tr:nth-child(2) > td > a');
 
-      await page.waitForSelector('.panel');
+    // await page.waitForSelector('form[name="frmTransactieInfoDatumSelectie"]')
+    //   .then(async () => {
+    //     page.evaluate((x) => {
+    //       document.querySelector('input[id=FID]').value = 3;
+    //       return Promise.resolve(postTransactieInfoDatumSelectie());
+    //     });
+    //   });
+    //
+    // await page.waitForSelector('.panelcontent');
 
-      const data = await page.evaluate(() => {
-          const elements = Array.from(document.querySelectorAll('[id^="divOverzichtSaldo"]'));
+    await page.waitForSelector('.panel');
 
-          return elements.map(e => {
-              const data = {};
+    const data = await page.evaluate(() => {
+        const elements = Array.from(document.querySelectorAll('[id^="divOverzichtSaldo"]'));
 
-              data.paymentDate = e.querySelector('div:nth-child(1)').innerText.trim();
-              data.amount = e.querySelector('div:nth-child(4)').innerText.trim();
+        return elements.map(e => {
+            const data = {};
 
-              if (! data.amount) {
-                data.amount = e.querySelector('div:nth-child(5)').innerText.trim();
-              }
+            data.paymentDate = e.querySelector('div:nth-child(1)').innerText.trim();
+            data.amount = e.querySelector('div:nth-child(4)').innerText.trim();
 
-              const parent = e.querySelector('div:nth-child(2)');
-              const strong = parent.querySelector('strong');
+            if (! data.amount) {
+              data.amount = e.querySelector('div:nth-child(5)').innerText.trim();
+            }
 
-              data.company = '';
+            const parent = e.querySelector('div:nth-child(2)');
+            const strong = parent.querySelector('strong');
 
-              if (strong) {
-                  data.company = strong.innerText.trim();
-                  parent.removeChild(strong);
-              }
+            data.company = '';
 
-              data.description = parent.innerText.trim();
+            if (strong) {
+                data.company = strong.innerText.trim();
+                parent.removeChild(strong);
+            }
 
-              return data;
-          });
-      });
+            data.description = parent.innerText.trim();
 
-      console.log(JSON.stringify(data));
+            return data;
+        });
+    });
+
+    console.log(JSON.stringify(data));
 
     await browser.close();
   } catch (e) {
