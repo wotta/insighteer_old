@@ -6,7 +6,7 @@ dotEnv.config();
 (async () => {
   try {
     const browser = await puppeteer.launch({
-      headless:true,
+      headless:false,
       args: ['--no-sandbox']
     });
 
@@ -27,6 +27,16 @@ dotEnv.config();
       });
 
     await page.click('#tblSubmenu_BR_BR > tbody > tr:nth-child(2) > td > a');
+
+    // await page.waitForSelector('form[name="frmTransactieInfoDatumSelectie"]')
+    //   .then(async () => {
+    //     page.evaluate((x) => {
+    //       document.querySelector('input[id=FID]').value = 3;
+    //       return Promise.resolve(postTransactieInfoDatumSelectie());
+    //     });
+    //   });
+    //
+    // await page.waitForSelector('.panelcontent');
 
     await page.waitForSelector('.panel');
 
