@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'amount' => 'amount',
+    'amount'          => 'amount',
     'previous_amount' => 'previous amount',
 ];
