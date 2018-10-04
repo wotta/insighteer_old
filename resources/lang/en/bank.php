@@ -2,6 +2,6 @@
 
 return [
     'iban' => 'iban',
-    'bic' => 'bic',
+    'bic'  => 'bic',
     'name' => 'name',
 ];
