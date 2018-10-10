@@ -51,6 +51,8 @@ class Company extends Resource
                 ->rules('required'),
 
             MorphMany::make('Addresses'),
+
+            MorphMany::make('Attachments'),
         ];
     }
 
