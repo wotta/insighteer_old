@@ -27,4 +27,9 @@ class Company extends Model
     {
         return $this->morphMany(Address::class, 'addressable');
     }
+
+    public function attachments(): MorphMany
+    {
+        return $this->morphMany(Attachment::class, 'attachable');
+    }
 }

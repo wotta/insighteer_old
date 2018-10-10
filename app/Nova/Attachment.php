@@ -2,27 +2,28 @@
 
 namespace App\Nova;
 
+use App\Models\Attachment as AttachmentModel;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Gravatar;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\Text;
 
-class User extends Resource
+class Attachment extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\\User';
+    public static $model = AttachmentModel::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -30,7 +31,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id',
     ];
 
     /**
@@ -45,22 +46,22 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Gravatar::make(),
+            MorphTo::make('Attachable')->types([
+                Company::class,
+            ]),
 
-            Text::make(__('user.name'), 'name')
-                ->sortable()
-                ->rules('required', 'max:255'),
+            File::make('Path')
+                ->disk('public')
+                ->storeOriginalName('name')
+                ->storeSize('size'),
 
-            Text::make(__('user.email'), 'email')
-                ->sortable()
-                ->rules('required', 'email', 'max:255')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+            Text::make('Name')->exceptOnForms(),
 
-            Password::make(__('user.password'), 'password')
-                ->onlyOnForms()
-                ->creationRules('required', 'string', 'min:6')
-                ->updateRules('nullable', 'string', 'min:6'),
+            Text::make('Size')
+                ->exceptOnForms()
+                ->displayUsing(function ($value) {
+                    return number_format($value / 1024, 2).'kb';
+                }),
         ];
     }
 
