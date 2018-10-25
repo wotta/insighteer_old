@@ -20,9 +20,9 @@ dotEnv.config();
 
     await page.waitForSelector('[name=divPopup]')
       .then(async () => {
-        page.evaluate(x => {
-            Promise.resolve(parent.fPopupCancel());
-            Promise.resolve(collapseObject('divBeheerRekeningen', 'divBerichten,divSignaleringen,divEigenRekeningen'));
+        page.evaluate(() => {
+            parent.fPopupCancel();
+            collapseObject('divBeheerRekeningen', 'divBerichten,divSignaleringen,divEigenRekeningen');
         });
       });
 
