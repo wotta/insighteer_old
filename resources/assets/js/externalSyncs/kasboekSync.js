@@ -6,7 +6,7 @@ dotEnv.config();
 (async () => {
   try {
     const browser = await puppeteer.launch({
-      headless:false,
+      headless:true,
       args: ['--no-sandbox']
     });
 
