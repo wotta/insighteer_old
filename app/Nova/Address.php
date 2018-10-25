@@ -36,6 +36,7 @@ class Address extends Resource
         'address',
         'second_address',
         'city',
+        'suburb',
         'state',
         'postal_code',
         'country_code',
@@ -62,6 +63,8 @@ class Address extends Resource
             Text::make('Address Line 2', 'second_address')->hideFromIndex(),
 
             Text::make('City'),
+
+            Text::make('Suburb')->hideFromIndex(),
 
             Text::make('State')->hideFromIndex(),
 
