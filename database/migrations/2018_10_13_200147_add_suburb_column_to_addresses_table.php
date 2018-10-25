@@ -9,7 +9,7 @@ class AddSuburbColumnToAddressesTable extends Migration
     public function up(): void
     {
         Schema::table('addresses', function (Blueprint $table) {
-            $table->string('suburb');
+            $table->string('suburb')->nullable();
         });
     }
 
